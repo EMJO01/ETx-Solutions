@@ -5,103 +5,362 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creative Tech | Visibility & Brand Setup</title>
   <link rel="stylesheet" href="visibility.css" />
-</head>
+  <style>
+    .badge {
+      display: inline-block;
+      background: rgba(169, 116, 88, 0.15);
+      color: var(--brown-main);
+      border: 1px solid rgba(169, 116, 88, 0.3);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
 
+    .top-section {
+      text-align: center;
+      background: var(--black-soft);
+      padding: 80px 10%;
+    }
+
+    .top-section h1 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .top-section p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 22px;
+    }
+
+    .price-tag .amount {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--brown-main);
+    }
+
+    .price-tag .note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .main {
+      padding: 80px 10%;
+    }
+
+    .main > h2 {
+      margin-bottom: 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--brown-main);
+    }
+
+    .card-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(169, 116, 88, 0.12);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .card-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--brown-main);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.55;
+      text-align: left;
+    }
+
+    .feature-card ul {
+      margin: 10px 0;
+      padding-left: 18px;
+    }
+
+    .feature-card ul li {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .why-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .why-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brown-main);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .why-block p {
+      font-size: 0.8rem;
+      color: var(--brown-main) !important;
+      margin: 0;
+    }
+
+    .cta-section {
+      background: var(--black-soft);
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .top-section h1 {
+        font-size: 1.7rem;
+      }
+
+      .price-tag {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+      }
+
+      nav ul.nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 220px;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        display: none;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      nav ul.nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      nav ul.nav-links li a {
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
 <body>
+
   <header>
     <h2 class="logo">Creative Tech</h2>
     <nav>
-      <ul>
-        <li><a href="#visibility-brand-setup">Home</a></li>
-        <li><a href="#main">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section id="visibility-brand-setup" class="top-section">
-      <h2>Visibility & Brand Setup ($1500)</h2>
-      <h4>Kick-Start Your Online Store: Build, Launch & Grow</h4>
-      <p>Perfect for anyone ready to start selling online — we help you create a professional store that attracts customers, builds trust, and drives sales..</p>
-    </section>
 
-    <section id="main" class="main">
-      <h2>What’s Included & Why It Matters</h2>
-      <div>
-        <h2>Polished & Consistent Brand Identity</h2>
-        <p>We design a clean, professional, and user-friendly store that looks great on all devices and helps turn visitors into buyers.</p>
-        <ul>
-          <li>Cohesive visuals (logo, colors, fonts, imagery style)</li>
-          <li>Consistent messaging across your site</li>
-          <li>Builds trust and makes your brand memorable</li>
-        </ul>
-        <p>Why it matters: A recognizable, professional brand makes visitors feel confident buying from you.</p>
-      </div>
-
-      <div>
-        <h2>Social Media Setup & Content Launch (20 Branded Templates)</h2>
-        <p>We’ll set up or optimize your social accounts and launch 20 pre-designed posts introducing your brand, products, and story..</p>
-        <ul>
-          <li>Optimized product pages (titles, descriptions, images, SEO)</li>
-          <li>Branded social media content to build awareness</li>
-          <li>Templates ready to post and engage your audience</li>
-        </ul>
-        <p>Why it matters: Regular, on-brand content helps you connect with your audience, build recognition, and start creating customer relationships early..</p>
-      </div>
-
-      <div>
-        <h2>SEO & On-Site Optimization</h2>
-        <p>Your store will be fully responsive and optimized for search engines.</p>
-        <ul>
-          <li>Keyword research & on-page SEO</li>
-          <li>Optimized page titles, descriptions, and content</li>
-          <li>Mobile-friendly design for better user experience</li>
-        </ul>
-        <p>Why it matters: Helps customers find your store naturally, bringing in organic, high-intent traffic without spending heavily on ads..</p>
-      </div>
-
-      <div>
-        <h2>Unified Website + Social Branding</h2>
-        <p>Your website’s look, tone, and messaging will match your social channels for a seamless brand experience.</p>
-        <ul>
-          <li>Pop-ups to encourage email signups</li>
-          <li>Aligned visuals, messaging, and content</li>
-          <li>Creates credibility and a professional appearance</li>
-        </ul>
-        <p>Why it matters: A consistent presence across your store and social builds trust and makes your brand recognizable, which is key for long-term growth.</p>
-      </div>
-
-      <div>
-        <h2>Lead-Capture & Customer Engagement Tools</h2>
-        <p>We’ll add tools that turn visitors into leads and help you engage customers automatically..</p>
-        <ul>
-          <li>Email signup forms, contact hooks, or “join waitlist” option</li>
-          <li>Chatbots to answer customer questions instantly</li>
-          <li>Trusted payment options & shipping rules</li>
-        </ul>
-        <p>Why it matters: Collecting emails and automating responses lets you nurture leads, close sales, and focus on growth instead of manual follow-ups.</p>
+    <!-- HERO -->
+    <section class="top-section">
+      <div class="badge">Visibility &amp; Brand Setup</div>
+      <h1>Kick-Start Your Online Store</h1>
+      <p>Perfect for anyone ready to start selling online — we help you create a professional store that attracts customers, builds trust, and drives sales.</p>
+      <div class="price-tag">
+        <span class="amount">$1,200</span>
+        <span class="note">One-time setup &middot; Prices negotiable</span>
       </div>
     </section>
 
-    <!-- ===== Call to Action Section ===== -->
-    <section id="contact" class="contact">
+    <!-- WHAT'S INCLUDED -->
+    <section id="main" class="main section">
+      <h2>What's included &amp; why it matters</h2>
+
+      <div class="cards-grid">
+
+        <div class="feature-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3>Polished &amp; consistent brand identity</h3>
+          <p>A clean, professional store that looks great on all devices and helps turn visitors into buyers.</p>
+          <ul>
+            <li>Cohesive visuals — logo, colors, fonts, imagery style</li>
+            <li>Consistent messaging across your site</li>
+            <li>Builds trust and makes your brand memorable</li>
+          </ul>
+          <div class="why-block">
+            <div class="why-dot"></div>
+            <p>A recognizable brand makes visitors feel confident buying from you.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <h3>Social media setup &amp; content launch</h3>
+          <p>Optimized social accounts plus 20 pre-designed branded posts introducing your brand, products, and story.</p>
+          <ul>
+            <li>Optimized product pages with SEO</li>
+            <li>Branded social content to build awareness</li>
+            <li>20 templates ready to post immediately</li>
+          </ul>
+          <div class="why-block">
+            <div class="why-dot"></div>
+            <p>On-brand content builds recognition and starts customer relationships early.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>SEO &amp; on-site optimization</h3>
+          <p>Your store fully optimized for search engines and built to perform on every device.</p>
+          <ul>
+            <li>Keyword research &amp; on-page SEO</li>
+            <li>Optimized page titles, descriptions, and content</li>
+            <li>Mobile-friendly design for better experience</li>
+          </ul>
+          <div class="why-block">
+            <div class="why-dot"></div>
+            <p>Helps customers find your store organically without spending heavily on ads.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Unified website &amp; social branding</h3>
+          <p>Your website's look, tone, and messaging matched across all social channels for a seamless brand experience.</p>
+          <ul>
+            <li>Pop-ups to encourage email signups</li>
+            <li>Aligned visuals, messaging, and content</li>
+            <li>Creates credibility and a professional appearance</li>
+          </ul>
+          <div class="why-block">
+            <div class="why-dot"></div>
+            <p>Consistency across store and social builds trust — key for long-term growth.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Lead-capture &amp; customer engagement tools</h3>
+          <p>Tools that turn visitors into leads and help you engage customers automatically from day one.</p>
+          <ul>
+            <li>Email signup forms and waitlist options</li>
+            <li>Chatbots to answer customer questions instantly</li>
+            <li>Trusted payment options &amp; shipping rules</li>
+          </ul>
+          <div class="why-block">
+            <div class="why-dot"></div>
+            <p>Collecting emails and automating responses lets you nurture leads and focus on growth.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
       <h2>Ready to grow your online store?</h2>
-      <p>Let’s build something that actually generates revenue.</p>
-      <p>Pick a package above and let’s get started 🚀 <br> I’m excited to work with you!</p>
-      <a href="https://www.instagram.com/techjames_01/?__pwa=1#"><button>Contact Me</button></a>
+      <p>Let's build something that actually generates revenue.</p>
+      <a href="https://www.instagram.com/techjames_01/" class="btn-primary" target="_blank">Contact Me</a>
+      <a href="index.html#pricing" class="btn-outline">View All Packages</a>
     </section>
+
   </main>
 
   <footer class="footer">
     <p>&copy; 2024 Creative Tech. All rights reserved.</p>
     <nav>
       <ul>
-        <li><a href="#visibility-brand-setup">Home</a></li>
-        <li><a href="#main">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
   </footer>
+
+  <script src="script.js"></script>
+
 </body>
 </html>

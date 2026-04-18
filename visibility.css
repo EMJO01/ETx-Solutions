@@ -29,6 +29,9 @@ body {
 }
 
 /* ===== GLOBAL ===== */
+section {
+  padding: 80px 10%;
+}
 .section {
   padding: 100px 10%;
 }
@@ -40,6 +43,14 @@ body {
 h1, h2, h3 {
   color: var(--text-main);
   margin-bottom: 15px;
+}
+
+h2, h3, p{
+  text-align: center;
+}
+
+h4 {
+  text-align: end;
 }
 
 p {
@@ -108,13 +119,13 @@ nav ul {
 }
 
 nav a {
-  color: var(--text);
+  color: var(--text-main);
   text-decoration: none;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--brown-main);
 }
 
 /* ===== HERO / HOME ===== */
@@ -215,6 +226,12 @@ nav a:hover {
   border-radius: 10px;
 }
 
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
 /* CTA SECTION */
 .cta {
   text-align: center;
@@ -227,7 +244,6 @@ nav a:hover {
 /* ===== FOOTER ===== */
 .footer {
   padding: 40px 10%;
-  background: #000;
   text-align: center;
   background: var(--black-soft)
 }
@@ -241,21 +257,70 @@ nav a:hover {
 }
 
 .footer a {
-  color: var(--text);
+  color: var(--text-muted);
   text-decoration: none;
+}
+
+/* Hamburger icon */
+.hamburger span {
+    background-color: #fff; /* white for dark header */
+}
+
+/* Hamburger base */
+.hamburger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-
   .home, .hero {
     flex-direction: column;
     text-align: center;
   }
 
-  .pricing-cards {
-    flex-direction: column;
-    align-items: center;
+  .home-image, .hero-image {
+    order: -1;
   }
 
+  /* Hide normal nav */
+    nav ul.nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 220px;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        display: none;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Show when active */
+    nav ul.nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    nav ul.nav-links li a {
+        color: #fff;
+        font-size: 1rem;
+    }
+
+  /* Hamburger */
+    .hamburger {
+        display: flex;
+    }
 }
